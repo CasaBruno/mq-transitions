@@ -1,12 +1,12 @@
 import paho.mqtt.client as mqtt
 
 #Connection success callback
-def on_connect(client, userdata, flags, rc):
+def on_connect(client, rc):
     print('Connected with result code '+str(rc))
     client.subscribe('bruno/#')
 
 # Message receiving callback
-def on_message(client, userdata, msg):
+def on_message(msg):
     print(msg.topic+" "+str(msg.payload))
 
 client = mqtt.Client()
